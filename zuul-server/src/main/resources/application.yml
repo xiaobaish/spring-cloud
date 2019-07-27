@@ -1,0 +1,47 @@
+server:
+  port: 4000
+spring:
+  application:
+    name: zuul-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+# \u914D\u7F6E\u53CD\u5411\u4EE3\u7406
+zuul:
+  # \u5FFD\u7565\u6240\u6709\u7684\u670D\u52A1
+  ignored-services: '*'
+  routes:
+    # \u4E00\u4E2A\u670D\u52A1
+    eureka-cli:
+      path: /client/**
+      serviceId: eureka-cli
+
+    clientA:
+      path: /clienta/**
+      serviceId: service-feign
+
+    clientB:
+      path: /clientb/**
+      serviceId: service-ribbon
+
+#ribbon:
+#  ReadTimeout: 5000
+#  SocketTimeout: 5000
+
+#  hystrix\uFF1A
+#  command\uFF1A
+#  myusers-service\uFF1A
+#  execution\uFF1A
+#  isolation\uFF1A
+#  thread\uFF1A
+#  timeoutInMilliseconds\uFF1A...
+#
+#  myusers-service\uFF1A
+#  ribbon\uFF1A
+#  NIWSServerListClassName\uFF1Acom.netflix.loadbalancer.ConfigurationBasedServerList
+#  listOfServers\uFF1Ahttps\uFF1A//example1.com,http\uFF1A//example2.com
+#  ConnectTimeout\uFF1A1000
+#  ReadTimeout\uFF1A3000
+#  MaxTotalHttpConnections\uFF1A500
+#  MaxConnectionsPerHost\uFF1A100

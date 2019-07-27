@@ -1,0 +1,18 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      # \u914D\u7F6Egit\u4ED3\u5E93\u7684\u5730\u5740
+      server:
+        git:
+          uri: https://github.com/shangzf/spring-cloud-config-server
+          search-paths: config-respo
+      label: master
+# \u6CE8\u518C\u4E2D\u5FC3\u7684\u5730\u5740
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

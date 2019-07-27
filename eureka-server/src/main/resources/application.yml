@@ -1,0 +1,15 @@
+# \u914D\u7F6E\u670D\u52A1\u7AEF\u53E3
+server:
+  port: 8761
+eureka:
+  instance:
+    # eureka\u4E3B\u673A\u540D\u79F0
+    hostname: localhost
+  client:
+    # \u662F\u5426\u628A\u5F53\u524D\u670D\u52A1\u6CE8\u518C\u5230eureka\u4E2D
+    register-with-eureka: false
+    # \u662F\u5426\u8981\u62C9\u53D6eureka\u4E2D\u7684\u670D\u52A1\u5217\u8868
+    fetch-registry: false
+    # \u670D\u52A1\u7684\u8BBF\u95EE\u5730\u5740
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
